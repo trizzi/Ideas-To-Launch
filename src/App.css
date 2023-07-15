@@ -1,0 +1,419 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --primary-color: #1f2937; 
+    --secondary-color: #3882f6;
+    --tertiary-color: #b3b7be;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.4;
+    overflow-x: hidden;
+}
+
+a{
+    text-decoration: none;
+}
+
+/*Utilities*/
+.container{
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 2rem;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.text-right{
+    text-align: end;
+}
+
+.m-heading{
+    font-size: 2rem;
+    margin: 1rem 0;
+    line-height: 1.1;
+}
+
+.l-heading{
+    font-size: 3rem;
+    color: #f9faf8;;
+    line-height: 1.1;
+}
+
+.py-1{padding: 1.5rem 0;}
+.py-2{padding: 2rem 0}
+
+.bg-light{
+    background: #fff;
+    color: #1f2937;
+}
+
+.bg-dark{
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.lead{
+    font-size: 18px;
+    margin: 2rem 0;
+    color: #e5e7eb;
+}
+
+.btn{
+    display: inline-block;
+    color: #fff;
+    background: var(--secondary-color);
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: 5px;
+}
+.btn:hover{
+    background: #74a4f1;
+    transform: scale(1.5);
+}
+
+.btn-light{
+    display: inline-block;
+    border: 2px solid #fff;
+    color:#fff;
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+}
+
+.btn-light:hover{
+    background: #6b9ef0;
+    transform: scale(1.5);
+}
+
+/*Nav bar*/
+.navbar{
+    display: flex;
+    position: -webkit-sticky;
+    /* position sticky is not supported by safari 
+    brower hence the inclusion of webkit-sticky above */
+    position: sticky;
+    top: 0;
+    background: var(--primary-color);
+    color: #fff;
+    justify-content: space-between;
+    z-index: 1;
+    padding: 1rem 10rem;
+}
+
+.navbar ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.navbar ul li a{
+    color: #fff;
+    padding: 0.75rem;
+    margin: 0 0.25rem;
+}
+
+.navbar ul li a:hover{
+    background: #2b333f;
+    border-radius: 5px;
+}
+
+/*Showcase*/
+#showcase{
+    background: var(--primary-color);
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    color: #f9faf8;
+    padding: 15rem 10rem;
+}
+
+#showcase .showcase-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+}
+
+#showcase .showcase-img{
+    width: 800px;
+    height: 350px;
+    background: #52565e;
+    transition: 1s;
+    position: relative;
+    perspective: 500px;
+}
+
+#showcase .showcase-img .face{
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: 1s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+#showcase .showcase-img:hover .face.front{
+    transform: rotateY(180deg);
+}
+
+#showcase .showcase-img .face.back{
+    width: 800px;
+    height: 350px;
+    background: #52565e;
+    transform: rotateY(180deg);
+}
+
+#showcase .showcase-img:hover .face.back{
+    transform: rotateY(360deg);
+}
+
+#showcase .showcase-img .face.front::before{
+    content: '';
+    position: absolute;
+    opacity: 0.7;
+}
+
+#showcase .showcase-img .front::after{
+    content: '';
+    position: absolute;
+    opacity: 0.7;
+}
+
+
+#showcase .showcase-img .face.front p{
+    /* text-align: center; */
+    padding: 12rem 17rem;
+}
+
+#showcase .showcase-img .face.back p{
+    text-align: center;
+    padding: 12rem 0;
+}
+
+/*Information*/
+#information .items{
+    display: flex;
+}
+
+#information .items .item{
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+}
+
+#information .items .item .img{
+    border: 5px solid var(--secondary-color);
+    padding: 6rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    transition: transform 0.9s;
+}
+
+#information .items .item .img:hover{
+    transform: rotate(120deg) scale(1.5) translateY(-100px);
+}
+
+/* Testimonial */
+#testimonial{
+   background-color: var(--tertiary-color);
+}
+
+#testimonial .testimonial-content{
+    font-style: italic;
+    font-size: 36px;
+    text-align: center;
+    padding: 3rem 5rem;
+}
+
+#testimonial .testimonial-content span{
+    padding-left: 45rem;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+/* Sign up */
+#sign-up{
+ padding: 5rem 10rem;   
+ background: #fff;
+}
+
+#sign-up .sign-up-content{
+  background: var(--secondary-color);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem 5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+/* Mobile design */
+@media screen and (max-width: 414px) {
+    .l-heading{
+        font-size: 2rem;
+    }
+
+    .m-heading{
+        font-size: 1.5rem;
+    }
+
+    .lead{
+        font-size: 16px;
+    }
+
+    .container{
+        width: 300px!important;
+    }
+ 
+    /* Navbar */
+    #navbar{
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    #navbar .logo{
+        text-align: center;
+    }
+
+    #navbar ul{
+        display: flex;
+        flex-direction: column;
+       
+    }
+
+    #navbar ul li{
+        border-bottom: 2px dashed #b3b7be;
+        padding: 1rem;
+    }
+
+    #showcase{
+        display: flex;
+        flex-direction: column;
+        padding: 3rem!important;
+        height: 50%!important;
+    }
+
+    #showcase .showcase-content{
+        margin-bottom: 1.5rem;
+    }
+
+    #showcase .showcase-img .face.front p{
+        text-align: center!important;
+        padding: 10rem 3rem!important;
+    }
+
+    #showcase .showcase-img{
+        width: 300px!important;
+        height: 250px!important;
+    }
+    
+    #showcase .showcase-img .face.back {
+        width: 300px!important;
+        height: 250px!important;
+      }
+
+    #information{
+        padding: 2rem!important;
+    }
+
+    #information .items{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #testimonial .testimonial-content{
+        padding: 2rem;
+        font-size: 18px;
+    }
+
+    #sign-up{
+        padding: 2rem;
+    }
+
+    #sign-up .sign-up-content{
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+    }
+}
+
+/* Miniscreens designs */
+@media screen and (max-width: 900px){
+    .l-heading{
+        font-size: 2rem;
+    }
+
+    .m-heading{
+        font-size: 1.5rem;
+    }
+
+    .lead{
+        font-size: 16px;
+    }
+
+    .container{
+        width: 600px;
+    }
+ 
+    #navbar{
+        display: flex;
+        justify-content: space-around;
+        padding: 2rem 1rem;
+    }
+
+    #showcase{
+        height: 100%;
+        padding: 4rem;
+    }
+
+    #showcase .showcase-content{
+        margin-bottom: 1.5rem;
+    }
+
+    #showcase .showcase-img{
+        width: 350px;
+        height: 300px;
+    }
+
+    #showcase .showcase-img .face.back{
+        width: 350px;
+        height: 300px;
+    }
+
+    #showcase .showcase-img .face.front p{
+        text-align: center;
+        padding: 11rem 4rem;
+    }
+
+    #information{
+        padding: 2rem;
+    }
+
+    #information .items{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #testimonial .testimonial-content{
+        padding: 2rem;
+        font-size: 25px;
+    }
+
+    #sign-up{
+        padding: 2rem;
+    }
+
+    #sign-up .sign-up-content{
+        display: flex;
+        padding: 2rem;
+    } 
+}
